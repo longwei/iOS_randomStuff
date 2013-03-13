@@ -13,3 +13,9 @@ Play Groud of Object-C
    self, this
    super initial chain, similiar to Javascript properties chaining
 6. designated initilizer
+7. ARC shared_ptr, same as Qt Qobject parent memory management
+8. __weak reference. retain cycle.
+9. @properties declare setter and getter
+   @synthesize implementation
+10. copying to defense unaware modification
+11. @autoreleasepool

@@ -51,6 +51,15 @@
     return self;
 }
 
+- (id) initWithItemName:(NSString *)name
+           serialNumber:(NSString *)sNumber
+{
+    self = [self initWithItemName:name valueInDollar:0 serialNumber:sNumber];
+    return self;
+}
+
+
+
 - (void) dealloc
 {
     NSLog(@"destroyed %@", self);
@@ -62,41 +71,8 @@
                             valueInDollar:0
                      serialNumber:@""];
 }
-
-- (void) setItemName:(NSString *)str
-{
-    itemName = str;
-}
-
-- (NSString *)itemName
-{
-    return itemName;
-}
-
-- (void) setSerialName:(NSString *)str
-{
-    serialName = str;
-}
-
-- (NSString *) serialName
-{
-    return serialName;
-}
-
-- (void)setValueInDollars:(int)i
-{
-    valueInDollars = i;
-}
-
-- (int)valueInDollars
-{
-    return valueInDollars;
-}
-
-- (NSDate *) dateCreated
-{
-    return dateCreated;
-}
+@synthesize itemName;
+@synthesize serialName, valueInDollars, dateCreated, container, containedItem;
 
 - (NSString *) description
 {
@@ -108,21 +84,21 @@
 - (void) setContainedItem: (BNRItem *)i
 {
     containedItem = i;
-    [self setContainer:self];
+    [i setContainer:self];
 }
 - (BNRItem *) containedItem
 {
     return containedItem;
 }
 
-- (void) setContainer:(BNRItem *) i
-{
-    container = i;
-}
-- (BNRItem *) container
-{
-    return container;
-}
+//- (void) setContainer:(BNRItem *) i
+//{
+//    container = i;
+//}
+//- (BNRItem *) container
+//{
+//    return container;
+//}
 
 
 @end

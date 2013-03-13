@@ -20,23 +20,28 @@
 ## Play Ground of Object-C
 Cocoa Touch library
 
-1. To create object send a alloc message to a class, the class create it and return you a pointer to that chunk of memory
+- To create object send a alloc message to a class, the class create it and return you a pointer to that chunk of memory
    Type *instance = [[Type alloc] init]
-2. sending message _AWSOME_ if you want an object to run the code in its method, you send a message. and only one message is sent and result only one method being executed.
-3. class can have two method, addAttendee: and addAttendee:WithDish: are two distinct methods (function overload) 
+- sending message _AWSOME_ if you want an object to run the code in its method, you send a message. and only one message is sent and result only one method being executed.
+- class can have two method, addAttendee: and addAttendee:WithDish: are two distinct methods (function overload) 
   [instance selector:arg1 withSth:arg2... ]
-4. [venue sendConfirmation] don't need do nil-check, as if the venue is nil, this message is ignored.
-5. **@autoreleasepool**
-3. Formate String
+- [venue sendConfirmation] don't need do nil-check, as if the venue is nil, this message is ignored.
+- **@autoreleasepool**
+- Formate String
    @ is obj-c only symbol, for hard-coded String
-   %@ anyobject's description
-4. Array can only hold references.
-5. Initializer
-   id, void*
-   isa, more powerful than typeof (this is how instance be refective), response msg on runtime; Compare it to Qt's signal& slot(preprocess, compiler-time)
-   self, this
-   super initial chain, similar to Javascript properties chaining
-6. designated initilizer
+   %@ anyobject's description method
+- Array can only hold references. This means primitives and C structures cannot added to a array. NSNull to hold the "hole" in the array
+- extended keyword @interface @prefix.  accessor, or getters and setters. **setItemName, itemName**
+- override description don't need header, as it already declare someplace else .
+- Initializer, there could be the multi initXXX method, only one will be _designated initializer_, which all super class's designated initializer
+   **(id)** is defined as "a pointer to any object" ~= void*
+   why return (id) rather then Item*? the problem here is that when Item is subclassed, the subclass would inherit all the method, including this initializer and its return type. however, return instance as (id) is much more easy. The obj-c can't have two methods with same selector and different return types.
+   isa, is a instance variable that pointer back to the class when alloc.more powerful than typeof (this is how instance be reflective), response msg on runtime; Compare it to Qt's signal& slot(preprocess, compiler-time)
+   _I was sent this message, run the code for the matching method._ while in Qt the method to be executed is determined in qmake precompile.
+- self, this
+   [super init] super initial chain, similar to Javascript properties chaining 
+- for instance method, + for class method
+- exception: 
 
 
 

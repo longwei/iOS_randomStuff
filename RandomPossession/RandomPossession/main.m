@@ -13,18 +13,36 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
+        NSMutableArray* items= [[NSMutableArray alloc] init];
+//        [items addObject:@"one"];
+//        [items addObject:@"two"];
+//        [items insertObject:@"three" atIndex:2];
+        for(int i = 0; i < 3; i++){
+            BNRItem* p = [BNRItem randomItem];
+            [items addObject:p];
+        }
+        for (BNRItem* s in items) {
+            NSLog(@"%@",s);
+        }
+        BNRItem* another = [[BNRItem alloc] initWithItemName:@"Longwei" serialNumber:@"Su"];
+        NSLog(@"%@", another);
         
-        // insert code here...
-        NSMutableArray *item = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 10; ++i) {
-            BNRItem *p = [BNRItem randomItem];
-            [item addObject:p];
-        }
-        for (int i = 0; i < [item count]; ++i) {
-            NSLog(@"%@",[item objectAtIndex:i]);
-        }
-        NSLog(@"setting to nil...");
-        item = nil;
+        
+        BNRItem *backpack = [[BNRItem alloc] init];
+        [backpack setItemName:@"Backpack"];
+        
+        
+        BNRItem *calculator = [[BNRItem alloc] init];
+        [calculator setItemName:@"Calculator"];
+        
+        [backpack setContainedItem:calculator];
+        
+        
+        
+//        NSLog(@"Container: %@", [calculator container]);
+        backpack = nil;
+        calculator = nil;
+
     }
     return 0;
 }
