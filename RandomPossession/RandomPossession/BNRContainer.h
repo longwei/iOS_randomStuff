@@ -11,12 +11,17 @@
 @interface BNRContainer : BNRItem
 //description of name of container sum of values, and list of every BNRitem it contains
 {
-    NSMutableArray* item;
+    NSMutableArray* subitems;
 }
+
+-(id) init;
+-(id) initWithArray:(NSMutableArray*)inputArray;
+
+- (void) addItem:(BNRItem*) item;
 
 - (int) fullValue;
 
-- (int) valueInDollars:(int) index;
+- (int) valueInDollarsWithIndex:(int) index;
 
 
 @end

@@ -62,7 +62,7 @@
 
 - (void) dealloc
 {
-    NSLog(@"destroyed %@", self);
+//    NSLog(@"destroyed %@", self);
 }
 
 - (id) initvalueInDollar
