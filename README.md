@@ -1,8 +1,9 @@
 # BookNote on Big Nerd Ranch 
 ---
 ## Sample iOS app
-- How do i get my object created and configured properly
-- How do I deal with user Interaction?
+How do i get my object created and configured properly?
+How do I deal with user Interaction?
+
 - XIB is xml representation of the archived objects, it will compiled into a NIB file, which is easier to parse.
 	- _file'owner_: which controller has the access to the objects
 	- _first responder_: ignore it for right now
@@ -18,7 +19,7 @@
 - interesting and powerful syntax.
 
 ## Play Ground of Object-C
-Cocoa Touch library
+Cocoa Touch library and message passing 
 
 - To create object send a alloc message to a class, the class create it and return you a pointer to that chunk of memory
    Type *instance = [[Type alloc] init]
@@ -42,6 +43,20 @@ Cocoa Touch library
    [super init] super initial chain, similar to Javascript properties chaining 
 - for instance method, + for class method
 - exception: 
+
+## ARC
+Smart Pointer
+
+- all obj-c object are in heap, same as Java, however, object never inside others.
+- method and function create stacks. retired retain and release.
+- pointer convey _ownership_ of the objects that they pointer to
+- memory leak and premature deallocation. parent destroy chain.
+- weak reference: a variable that not take the ownership of pointer object. break retain cycle to parent and child relationship.
+- @property for declaration @synthesize for implementation, and declaration of the instance variable
+- copy annotation
+
+##delegation and core location
+- Project, target, framework
 
 
 

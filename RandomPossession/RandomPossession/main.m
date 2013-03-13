@@ -29,26 +29,26 @@ int main(int argc, const char * argv[])
 //        BNRItem* another = [[BNRItem alloc] initWithItemName:@"Longwei" serialNumber:@"Su"];
 //        NSLog(@"%@", another);
         
-        BNRContainer* container1 = [[BNRContainer alloc] initWithArray:items];
-        [container1 setItemName: @"container1"];
-        BNRContainer* container2 = [[BNRContainer alloc] initWithArray:items];
-        [container2 setItemName: @"container2"];
-        NSLog(@"%@",container1);
-        NSLog(@"%@",container2);
-        BNRContainer* containerTop = [[BNRContainer alloc] init];
-        [containerTop addItem: container1];
-        [containerTop addItem: container2];
-        [containerTop setItemName:@"containerTop"];
-        NSLog(@"%@",containerTop);
+//        BNRContainer* container1 = [[BNRContainer alloc] initWithArray:items];
+//        [container1 setItemName: @"container1"];
+//        BNRContainer* container2 = [[BNRContainer alloc] initWithArray:items];
+//        [container2 setItemName: @"container2"];
+//        NSLog(@"%@",container1);
+//        NSLog(@"%@",container2);
+//        BNRContainer* containerTop = [[BNRContainer alloc] init];
+//        [containerTop addItem: container1];
+//        [containerTop addItem: container2];
+//        [containerTop setItemName:@"containerTop"];
+//        NSLog(@"%@",containerTop);
         
-//        BNRItem *backpack = [[BNRItem alloc] init];
-//        [backpack setItemName:@"Backpack"];
-//        BNRItem *calculator = [[BNRItem alloc] init];
-//        [calculator setItemName:@"Calculator"];
-//        [backpack setContainedItem:calculator];
-//        NSLog(@"Container: %@", [calculator container]);
-//        backpack = nil;
-//        calculator = nil;
+        BNRItem *backpack = [[BNRItem alloc] init];
+        [backpack setItemName:@"Backpack"];
+        BNRItem *calculator = [[BNRItem alloc] init];
+        [calculator setItemName:@"Calculator"];
+        [backpack setContainedItem:calculator];
+        NSLog(@"Container: %@", [calculator container]);
+        backpack = nil;
+        calculator = nil;
 
     }
     return 0;
