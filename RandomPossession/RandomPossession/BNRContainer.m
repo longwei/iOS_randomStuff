@@ -25,8 +25,11 @@
     self = [super init];
     for(BNRItem* i in inputArray){
         [subitems addObject:i];
-//        subitems = [[NSMutableArray alloc] initWithArray:inputArray copyItems:YES];
     }
+//    for(BNRContainer* i in inputArray){
+//        [subitems addObject:i];
+//    }
+//    subitems = [[NSMutableArray alloc] initWithArray:inputArray copyItems:YES];
     return self;
 }
 
@@ -39,8 +42,16 @@
 - (int) fullValue
 {
     int result = 0;
-    for (BNRItem *i in subitems) {
-        result += [i valueInDollars];
+    if([[subitems objectAtIndex:0] isMemberOfClass:[BNRItem class]]) {
+        for (BNRItem *i in subitems) {
+            result += [i valueInDollars];
+        }
+        return result;
+    }
+    if([[subitems objectAtIndex:0] isMemberOfClass:[BNRContainer class]]) {
+        for (BNRContainer *i in subitems) {
+            result += [i fullValue];
+        }
     }
     return result;
 }

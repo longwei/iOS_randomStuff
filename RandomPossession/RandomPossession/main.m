@@ -38,6 +38,7 @@ int main(int argc, const char * argv[])
         BNRContainer* containerTop = [[BNRContainer alloc] init];
         [containerTop addItem: container1];
         [containerTop addItem: container2];
+        [containerTop setItemName:@"containerTop"];
         NSLog(@"%@",containerTop);
         
 //        BNRItem *backpack = [[BNRItem alloc] init];
