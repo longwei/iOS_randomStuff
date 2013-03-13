@@ -57,6 +57,13 @@ Smart Pointer
 
 ##delegation and core location
 - Project, target, framework
+- in the controller, the handler for message need to be exactly match, and xcoder won't give you a hint about what is the signature.
+- delegate is oo approach to callbacks. callback is a function that is supplied in advance of an event and is called everything the event occurs. delegate is the single one that receive all the event message for a particular object.
+- with target-action pair the message can be any message, in delegation, once the delegate is set, then you can send an object messages from protocol. the delegate will **implement** the method that correspond to the events it care about.
+- protocol CLLocationManagerDelegate <NSObject>. protocol is not a class. and implementation is left to each class that conforms to the protocol
+- optional protocol, before sending an optional message, the object first ask its delegate if it is okay to send that message by sending **respondsToSelector**. Every object has this method, which checks at runtime whether i have this given method. HOW? turn method selector into SEL updateMethod = @selector(Arg1:Arg2), then ask by respondsToSelector:updateMethod.
+- compiler will insist that a class implement all the required method in the protocol(or crash), but which protocol? declared in the header in _< xxDelegate>_
+- 
 
 
 

@@ -59,7 +59,6 @@
 		9626559D16F0451F0032CD23 = {
 			isa = PBXGroup;
 			children = (
-				962655CC16F045D50032CD23 /* CoreLocation.framework */,
 				962655AF16F0451F0032CD23 /* Whereami */,
 				962655A816F0451F0032CD23 /* Frameworks */,
 				962655A716F0451F0032CD23 /* Products */,
@@ -77,6 +76,7 @@
 		962655A816F0451F0032CD23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				962655CC16F045D50032CD23 /* CoreLocation.framework */,
 				962655A916F0451F0032CD23 /* UIKit.framework */,
 				962655AB16F0451F0032CD23 /* Foundation.framework */,
 				962655AD16F0451F0032CD23 /* CoreGraphics.framework */,
