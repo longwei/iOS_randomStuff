@@ -72,7 +72,17 @@ Smart Pointer
 - tagging location, text editing and first responder. UIView is a subclass of UIResponse.first responder handle events that don't associate with a position on the screen. then UITextField become become the first responder, virtual keyboard show up(like active focus?). UITextView is like UITextfield.
 
 ##Subclassing UIView and UIScrollView
--    
+What exactly is a view?
+a view know how to draw itself on the UIWindow, and exists within a hierarchy of views. the root of this hierarchy is the application window. a view handles events, like touches.
+- each view maintains an **image** that represents it. even it is a text.
+- every application has exactly one instance of UIWindow that servers as the container for all the views. Create each view's image and add each view to the hierarchy. how about create a view that draw something on your choice?
+- in the XIB files, when dragged a view from the library onto the canvas, you created a view instance. 
+- view's frame: each view has a frame rectangle. view is similar to QWidget
+- drawRect: Method, UIView subclass override this method to perform custom drawing. the first thing to do is grab a pointer to drawing context. drawing context maintains the state of drawing and performs drawing operations. at the end of drawRect: the image produced by the context becomes that view's image.
+- Core Graphic is a C API for 2D drawing, the hub of CG is CGContextRef: context creates an image.
+- 1. Path: a collection of points form shapes; 2 drawing operations: stroke, fillpath, clip 3: after drawing operation the path is removed from the context. 
+
+
 
 
 
