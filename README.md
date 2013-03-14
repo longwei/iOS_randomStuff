@@ -63,7 +63,16 @@ Smart Pointer
 - protocol CLLocationManagerDelegate <NSObject>. protocol is not a class. and implementation is left to each class that conforms to the protocol
 - optional protocol, before sending an optional message, the object first ask its delegate if it is okay to send that message by sending **respondsToSelector**. Every object has this method, which checks at runtime whether i have this given method. HOW? turn method selector into SEL updateMethod = @selector(Arg1:Arg2), then ask by respondsToSelector:updateMethod.
 - compiler will insist that a class implement all the required method in the protocol(or crash), but which protocol? declared in the header in _< xxDelegate>_
-- 
+
+## MapKit and TextInput
+
+- how to zoom in the current location? "zoom-in-on-location"? good, but when do the controller send that message? I can't send it on initialization, nor I want to poll to force view to zoom-in. how about make the controller conforms to the MKView protocol. Now MkView can send controller when some interesting event happens. after I know the user location is updated? what message I should send to mapview? a region? but there is data type mismatch, np, we can have some function to do it.
+- MKAnnotation, as long as those location information conform the MKAnnotation protocol, they can be shown on MKView
+- create a pointer class that conforms the protocol, we don't have to declare the property exactly same as API reference, as it only dictate on method signature.
+- tagging location, text editing and first responder. UIView is a subclass of UIResponse.first responder handle events that don't associate with a position on the screen. then UITextField become become the first responder, virtual keyboard show up(like active focus?). UITextView is like UITextfield.
+
+##Subclassing UIView and UIScrollView
+-    
 
 
 
