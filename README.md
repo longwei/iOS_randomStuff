@@ -82,8 +82,10 @@ a view know how to draw itself on the UIWindow, and exists within a hierarchy of
 - Core Graphic is a C API for 2D drawing, the hub of CG is CGContextRef: context creates an image.
 - 1. Path: a collection of points form shapes; 2 drawing operations: stroke, fillpath, clip 3: after drawing operation the path is removed from the context. 
 
-
-
-
+- Redrawing View: the run loop's job is to listen for input (touch, update, network data coming), and then find the appropriate handlers for that event(action | delegate method for an object). once all the methods completed, control return to the run loop, and at that point the views are redrawn. when control returns to the run loop "well, a bunch of code was just executed, i and going to check if any views need to be redrawn" then prepare the drawing context and sends the message drawRect: to all the views that have been sent setNeeedsDisplay in the last iteration of loop. other views don't need to redraw themselves.
+- **Motion Events** most views only care about events connected with themselves, so the responder object need to stand out and state that it willing to become the first responder.
+- UIScrollView and contentSize.  Panning: swap and only show one view from the list, zooming, the scrollview needs to know the minimum and maximum zooom levels, and it needs to know the view to zoom in on.
+- TODO review ZOMMING and Delegate
+- Hide status bar, sharedApplication and info.plist
 
 

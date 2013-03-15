@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HypnosisterView.h"
 
 @class HypnosisterViewController;
 
-@interface HypnosisterAppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface HypnosisterAppDelegate : UIResponder <UIApplicationDelegate, UIScrollViewDelegate>
+{
+    HypnosisterView* view;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) HypnosisterViewController *viewController;
