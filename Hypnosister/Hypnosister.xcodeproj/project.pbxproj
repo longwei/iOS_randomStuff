@@ -19,6 +19,7 @@
 		96342E9B16F23235003C6D42 /* HypnosisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96342E9A16F23235003C6D42 /* HypnosisterViewController.m */; };
 		96342E9E16F23235003C6D42 /* HypnosisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96342E9C16F23235003C6D42 /* HypnosisterViewController.xib */; };
 		96342EA616F23629003C6D42 /* HypnosisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96342EA516F23629003C6D42 /* HypnosisterView.m */; };
+		96793C3E16F8F2A40038A96F /* MathModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96793C3C16F8F2A40038A96F /* MathModel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		96342E9D16F23235003C6D42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HypnosisterViewController.xib; sourceTree = "<group>"; };
 		96342EA416F23629003C6D42 /* HypnosisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnosisterView.h; sourceTree = "<group>"; };
 		96342EA516F23629003C6D42 /* HypnosisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisterView.m; sourceTree = "<group>"; };
+		96793C3C16F8F2A40038A96F /* MathModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathModel.cpp; sourceTree = "<group>"; };
+		96793C3D16F8F2A40038A96F /* MathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		96342E7516F23235003C6D42 = {
 			isa = PBXGroup;
 			children = (
+				96793C3C16F8F2A40038A96F /* MathModel.cpp */,
+				96793C3D16F8F2A40038A96F /* MathModel.h */,
 				96342E8716F23235003C6D42 /* Hypnosister */,
 				96342E8016F23235003C6D42 /* Frameworks */,
 				96342E7F16F23235003C6D42 /* Products */,
@@ -183,6 +188,7 @@
 				96342E9216F23235003C6D42 /* HypnosisterAppDelegate.m in Sources */,
 				96342E9B16F23235003C6D42 /* HypnosisterViewController.m in Sources */,
 				96342EA616F23629003C6D42 /* HypnosisterView.m in Sources */,
+				96793C3E16F8F2A40038A96F /* MathModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +311,7 @@
 				96342EA316F23235003C6D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

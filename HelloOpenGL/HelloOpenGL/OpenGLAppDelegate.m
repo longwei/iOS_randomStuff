@@ -1,55 +1,42 @@
 //
-//  HypnosisterAppDelegate.m
-//  Hypnosister
+//  OpenGLAppDelegate.m
+//  HelloOpenGL
 //
-//  Created by longwei su on 3/14/13.
+//  Created by longwei su on 3/21/13.
 //  Copyright (c) 2013 com.longwei. All rights reserved.
 //
 
-#import "HypnosisterAppDelegate.h"
+#import "OpenGLAppDelegate.h"
 
-#import "HypnosisterViewController.h"
-#import "HypnosisterView.h"
+#import "OpenGLViewController.h"
+#import <GLKit/GLKit.h>
 
-@implementation HypnosisterAppDelegate
+@implementation OpenGLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    // Override point for customization after application launch.
-//    self.viewController = [[HypnosisterViewController alloc] initWithNibName:@"HypnosisterViewController" bundle:nil];
-//    self.window.rootViewController = self.viewController;
-//    CGRect viewFrame = CGRectMake(160, 240, 100, 150);
-    CGRect screenRect = [[self window] bounds];
-    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    [scrollView setPagingEnabled:YES];
-    [[self window] addSubview:scrollView];
-    CGRect bigRect = screenRect;
-//    bigRect.size.height *= 2.0;
-//    bigRect.size.width *= 2.0;
-    view =[[HypnosisterView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:view];
     
-//    screenRect.origin.x = screenRect.size.width;
-//    HypnosisterView* anotherview =[[HypnosisterView alloc] initWithFrame:screenRect];
-//    [scrollView addSubview:anotherview];
-//    [[self window] addSubview:view];
-//    [scrollView setContentSize: bigRect.size];
+    EAGLContext* context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    GLKView* view = [[GLKView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    view.context = context;
+    view.delegate = self;
+    [self.window addSubview:view];
     
-    [scrollView setMaximumZoomScale:1.0];
-    [scrollView setMinimumZoomScale:5.0];
-    //why delegete to myslef?
-    [scrollView setDelegate:self];
-    BOOL success = [view becomeFirstResponder];
-    if (success) {
-        NSLog(@"got the first responder");
-    } else {
-        NSLog(@"fails...");
-    }
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    // Override point for customization after application launch.
+//    self.viewController = [[OpenGLViewController alloc] initWithNibName:@"OpenGLViewController" bundle:nil];
+//    self.window.rootViewController = self.viewController;
+//    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+    
+    glClearColor(1.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -78,10 +65,5 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
-    return view;
-}
-
 
 @end

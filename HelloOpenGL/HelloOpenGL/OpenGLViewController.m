@@ -1,18 +1,18 @@
 //
-//  HypnosisterViewController.m
-//  Hypnosister
+//  OpenGLViewController.m
+//  HelloOpenGL
 //
-//  Created by longwei su on 3/14/13.
+//  Created by longwei su on 3/21/13.
 //  Copyright (c) 2013 com.longwei. All rights reserved.
 //
 
-#import "HypnosisterViewController.h"
+#import "OpenGLViewController.h"
 
-@interface HypnosisterViewController ()
+@interface OpenGLViewController ()
 
 @end
 
-@implementation HypnosisterViewController
+@implementation OpenGLViewController
 
 - (void)viewDidLoad
 {
@@ -24,10 +24,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)showQuestion:(id)sender
-{
-    NSLog(@"button clicked");
 }
 
 @end

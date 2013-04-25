@@ -86,6 +86,5 @@ a view know how to draw itself on the UIWindow, and exists within a hierarchy of
 - **Motion Events** most views only care about events connected with themselves, so the responder object need to stand out and state that it willing to become the first responder.
 - UIScrollView and contentSize.  Panning: swap and only show one view from the list, zooming, the scrollview needs to know the minimum and maximum zooom levels, and it needs to know the view to zoom in on.
 - TODO review ZOMMING and Delegate
-- Hide status bar, sharedApplication and info.plist
-
+- Hide status bar, sharedApplication and info.plist 
 

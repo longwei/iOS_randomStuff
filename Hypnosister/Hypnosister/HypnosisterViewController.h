@@ -10,4 +10,5 @@
 
 @interface HypnosisterViewController : UIViewController
 
+- (IBAction)showQuestion:(id)sender;
 @end

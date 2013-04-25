@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96793C3B16F8F1B20038A96F /* MathModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96793C3916F8F1B20038A96F /* MathModel.cpp */; };
 		96BD23DB1640AB1A003C0D79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD23DA1640AB1A003C0D79 /* UIKit.framework */; };
 		96BD23DD1640AB1A003C0D79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD23DC1640AB1A003C0D79 /* Foundation.framework */; };
 		96BD23DF1640AB1A003C0D79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD23DE1640AB1A003C0D79 /* CoreGraphics.framework */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96793C3916F8F1B20038A96F /* MathModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathModel.cpp; sourceTree = "<group>"; };
+		96793C3A16F8F1B20038A96F /* MathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathModel.h; sourceTree = "<group>"; };
 		96BD23D61640AB1A003C0D79 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BD23DA1640AB1A003C0D79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		96BD23DC1640AB1A003C0D79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 		96BD23E01640AB1A003C0D79 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				96793C3916F8F1B20038A96F /* MathModel.cpp */,
+				96793C3A16F8F1B20038A96F /* MathModel.h */,
 				96BD23E91640AB1A003C0D79 /* QuizAppDelegate.h */,
 				96BD23EA1640AB1A003C0D79 /* QuizAppDelegate.m */,
 				96BD23F21640AB1A003C0D79 /* QuizViewController.h */,
@@ -185,6 +190,7 @@
 				96BD23E71640AB1A003C0D79 /* main.m in Sources */,
 				96BD23EB1640AB1A003C0D79 /* QuizAppDelegate.m in Sources */,
 				96BD23F41640AB1A003C0D79 /* QuizViewController.m in Sources */,
+				96793C3B16F8F1B20038A96F /* MathModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +307,7 @@
 				96BD23FC1640AB1A003C0D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
