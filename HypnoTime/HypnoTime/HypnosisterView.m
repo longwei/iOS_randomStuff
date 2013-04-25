@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor clearColor]];
-        [self setCircleColor:[UIColor lightGrayColor]];
+        [self setCircleColor:[UIColor yellowColor]];
     }
     return self;	
 }
@@ -65,6 +65,15 @@
         NSLog(@"shaking");
         [self setCircleColor:[UIColor redColor]];
     }
+}
+
+-(void) colorChangedButtons:(id)sender
+{
+//    [self setNeedsDisplay];
+    NSArray* colorOptions = [[NSArray alloc] initWithObjects:
+                            [UIColor redColor],[UIColor greenColor],[UIColor blueColor],nil];
+    [self setCircleColor:[colorOptions objectAtIndex:[sender selectedSegmentIndex]]];
+
 }
 
 @end

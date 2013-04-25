@@ -25,9 +25,19 @@
 }
 -(void) loadView
 {
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    HypnosisterView *v = [[HypnosisterView alloc] initWithFrame:rect];
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    HypnosisterView *v = [[HypnosisterView alloc] initWithFrame:frame];
+    
+    NSArray* colorOptions = [[NSArray alloc]initWithObjects:@"Red",@"Green",@"Blue", nil];
+    UISegmentedControl* colorChange = [[UISegmentedControl alloc] initWithItems:colorOptions];
+    CGPoint centerPoint;
+    centerPoint.x = frame.size.width/2;
+    centerPoint.y = frame.size.height /5*4;
+    [colorChange setCenter:centerPoint];
     [self setView:v];
+    [v addSubview:colorChange];
+    [colorChange addTarget:v action:@selector(colorChangedButtons:)
+          forControlEvents:UIControlEventValueChanged];
 }
 
 -(void) viewDidLoad

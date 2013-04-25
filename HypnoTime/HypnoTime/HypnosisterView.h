@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface HypnosisterView : UIView
-
+-(void) colorChangedButtons:(id)sender;
 @property (nonatomic, strong) UIColor* circleColor;
 @end
+
+
