@@ -30,33 +30,20 @@
 {
     self = [super init];
     if(self){
-//        allItems = [[NSMutableArray alloc] init];
-        expensiveItems = [[NSMutableArray alloc] init];
-        cheapItems = [[ NSMutableArray alloc] init];
-        
+        allItems = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (NSArray*) expensiveItems
+- (NSArray*) allItems
 {
-    return expensiveItems;
-}
-
-- (NSArray*) cheapItems
-{
-    return cheapItems;
+    return allItems;
 }
 
 - (BNRItem*) createItem
 {
-    BNRItem *p = [BNRItem randomItem];
-    if ([p valueInDollars] > 50) {
-        [expensiveItems addObject:p];
-    }
-    if ([p valueInDollars] <= 50) {
-        [cheapItems addObject:p];
-    }
+    BNRItem* p = [BNRItem randomItem];
+    [allItems addObject:p];
     return p;
 }
 
