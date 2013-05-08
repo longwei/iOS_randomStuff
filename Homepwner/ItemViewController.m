@@ -28,9 +28,24 @@
     return [self init];
 }
 
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+//    return [[[BNRItemStore sharedStore] allItems] count];
+    NSPredicate* predicate;
+    if (section == 0) {
+        predicate = [NSPredicate predicateWithFormat:@"valueInDollars > 50"];
+    } else {
+        predicate = [NSPredicate predicateWithFormat:@"valueInDollars <= 50"];
+    }
+    NSArray* filteredArray = [self dataWithSectionIndex:section];
+    
+    return [filteredArray count];
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,9 +55,21 @@
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    BNRItem* p = [[[BNRItemStore sharedStore] allItems]objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[p valueInDollar]];
+    NSArray* filteredArray = [self dataWithSectionIndex:[indexPath section]];
+    BNRItem* p = [filteredArray objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[p description]];
     return cell;
+}
+
+-(NSArray*) dataWithSectionIndex:(NSInteger) section
+{
+    NSPredicate* predicate;
+    if (section == 0) {
+        predicate = [NSPredicate predicateWithFormat:@"valueInDollars > 50"];
+    } else {
+        predicate = [NSPredicate predicateWithFormat:@"valueInDollars <= 50"];
+    }
+    return [[[BNRItemStore sharedStore] allItems] filteredArrayUsingPredicate:predicate];
 }
 
 @end

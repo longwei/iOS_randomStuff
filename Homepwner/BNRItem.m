@@ -76,7 +76,7 @@
 
 - (NSString *) description
 {
-    NSString *desc = [[NSString alloc] initWithFormat:@("%@ (%@): Worth $%d, recored %@")
+    NSString *desc = [[NSString alloc] initWithFormat:@("%@ (%@): $%d, %@")
                       ,itemName, serialName, valueInDollars, dateCreated];
     return desc;
 }
