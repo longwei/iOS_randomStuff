@@ -28,9 +28,20 @@
     return [self init];
 }
 
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+//    return [[[BNRItemStore sharedStore] allItems] count];
+    if (section == 0) {
+        return [[[BNRItemStore sharedStore] expensiveItems] count];
+    } else {
+        return [[[BNRItemStore sharedStore] cheapItems] count];
+    }
+    
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,8 +51,15 @@
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    BNRItem* p = [[[BNRItemStore sharedStore] allItems]objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[p valueInDollar]];
+//    BNRItem* p = [[[BNRItemStore sharedStore] allItems]objectAtIndex:[indexPath row]];
+//    [[cell textLabel] setText:[p valueInDollar]];
+    if ([indexPath section] == 0) {
+        BNRItem *p = [[[BNRItemStore sharedStore] expensiveItems] objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[p description]];
+    } else {
+        BNRItem *p = [[[BNRItemStore sharedStore] cheapItems] objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[p description]];
+    }
     return cell;
 }
 

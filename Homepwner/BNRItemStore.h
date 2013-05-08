@@ -11,10 +11,15 @@
 
 @interface BNRItemStore : NSObject
 {
-    NSMutableArray* allItems;
+//    NSMutableArray* allItems;
+    NSMutableArray* expensiveItems;
+    NSMutableArray* cheapItems;
 }
 + (BNRItemStore*) sharedStore;
-- (NSArray*) allItems;
+//- (NSArray*) allItems;
+
+- (NSArray*) expensiveItems;
+- (NSArray*) cheapItems;
 - (BNRItem *) createItem;
 
 @end
