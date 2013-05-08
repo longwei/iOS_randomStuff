@@ -45,19 +45,24 @@
     }
     NSArray* filteredArray = [self dataWithSectionIndex:section];
     
-    return [filteredArray count];
+    return ([filteredArray count] + 1);
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     NSArray* filteredArray = [self dataWithSectionIndex:[indexPath section]];
-    BNRItem* p = [filteredArray objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[p description]];
+    if ([indexPath row] < [filteredArray count]) {
+        BNRItem* p = [filteredArray objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[p description]];
+    } else {
+        [[cell textLabel] setText:@"No More items"];
+    }
+
     return cell;
 }
 
