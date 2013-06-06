@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface ItemViewController : UITableViewController
+{
+    IBOutlet UIView* headerView;
+}
 
--(NSArray*) dataWithSectionIndex:(NSInteger) section;//?why?
+- (UIView*) headerView;
+- (IBAction)addNewItem:(id)sender;
+- (IBAction)toggleEditingMode:(id)sender;
 
+//-(NSArray*) dataWithSectionIndex:(NSInteger) section;//?why?
 @end
