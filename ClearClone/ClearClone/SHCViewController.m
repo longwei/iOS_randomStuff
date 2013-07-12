@@ -44,8 +44,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    tableView.dataSource = self;
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor blackColor];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,15 +62,35 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *ident = @"cell";
+//    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+//    if(!cell){
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+//    }
+//    SHCToDoItem* p = [_toDoItems objectAtIndex:[indexPath row]];
+//    [[cell textLabel] setText:[p text]];
+    
     // re-use or create a cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     // find the to-do item for this index
     int index = [indexPath row];
-    SHCToDoItem *item = _toDoItems[index];
+    SHCToDoItem* p = [_toDoItems objectAtIndex:[indexPath row]];
     // set the text
-    cell.textLabel.text = item.text;
+    [[cell textLabel] setText:[p text]];
     return cell;
+}
+
+-(UIColor*)colorForIndex:(NSInteger) index {
+    NSUInteger itemCount = _toDoItems.count - 1;
+    float val = ((float)index / (float)itemCount) * 0.6;
+    return [UIColor colorWithRed: 1.0 green:val blue: 0.0 alpha:1.0];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.0f;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = [self colorForIndex:indexPath.row];
 }
 
 @end

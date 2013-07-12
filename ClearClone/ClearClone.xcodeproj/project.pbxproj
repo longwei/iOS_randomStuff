@@ -19,6 +19,7 @@
 		9654F97B17602F3F00308B7C /* SHCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9654F97A17602F3F00308B7C /* SHCViewController.m */; };
 		9654F97E17602F3F00308B7C /* SHCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9654F97C17602F3F00308B7C /* SHCViewController.xib */; };
 		9699011317603637000614C9 /* SHCToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9699011217603637000614C9 /* SHCToDoItem.m */; };
+		969901161760E34F000614C9 /* SHCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 969901151760E34F000614C9 /* SHCTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		9654F97D17602F3F00308B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SHCViewController.xib; sourceTree = "<group>"; };
 		9699011117603637000614C9 /* SHCToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCToDoItem.h; sourceTree = "<group>"; };
 		9699011217603637000614C9 /* SHCToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCToDoItem.m; sourceTree = "<group>"; };
+		969901141760E34F000614C9 /* SHCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCTableViewCell.h; sourceTree = "<group>"; };
+		969901151760E34F000614C9 /* SHCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 		9654F96817602F3F00308B7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				969901141760E34F000614C9 /* SHCTableViewCell.h */,
+				969901151760E34F000614C9 /* SHCTableViewCell.m */,
 				9654F96917602F3F00308B7C /* ClearClone-Info.plist */,
 				9654F96A17602F3F00308B7C /* InfoPlist.strings */,
 				9654F96D17602F3F00308B7C /* main.m */,
@@ -183,6 +188,7 @@
 				9654F97217602F3F00308B7C /* SHCAppDelegate.m in Sources */,
 				9654F97B17602F3F00308B7C /* SHCViewController.m in Sources */,
 				9699011317603637000614C9 /* SHCToDoItem.m in Sources */,
+				969901161760E34F000614C9 /* SHCTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

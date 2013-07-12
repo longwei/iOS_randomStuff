@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SHCViewController : UIViewController <UITableViewDataSource>
+@interface SHCViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    IBOutlet UITableView* tableView;
     NSMutableArray* _toDoItems;
 }
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
