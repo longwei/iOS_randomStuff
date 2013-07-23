@@ -30,7 +30,7 @@
 //- (BNRItem *) container;
 
 @property (nonatomic, copy) NSString *itemName;
-@property (nonatomic, copy) NSString *serialName;
+@property (nonatomic, copy) NSString *serialNumber;
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, readonly, strong) NSDate *dateCreated;
 

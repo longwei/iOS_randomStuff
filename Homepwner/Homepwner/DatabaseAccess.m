@@ -1,18 +1,17 @@
 //
-//  FailedBankDatabase.m
-//  FailedBanks
+//  DatabaseAccess.m
+//  Homepwner
 //
-//  Created by longwei su on 7/11/13.
-//  Copyright (c) 2013 Longwei Su. All rights reserved.
+//  Created by longwei su on 7/23/13.
+//  Copyright (c) 2013 com.longwei. All rights reserved.
 //
 
-#import "FailedBankDatabase.h"
-#import "FailedBankDatabase.h"
-#import "FailedBankInfo.h"
+#import "DatabaseAccess.h"
+#import "TopicsList.h"
 
-@implementation FailedBankDatabase
+@implementation DatabaseAccess
 
-static FailedBankDatabase* _database;
+static DatabaseAccess* _database;
 
 
 -(id) init
@@ -28,20 +27,22 @@ static FailedBankDatabase* _database;
 }
 
 
-+ (FailedBankDatabase*)database {
++ (DatabaseAccess*)database {
     if (_database == nil) {
-        _database = [[FailedBankDatabase alloc] init];
+        _database = [[DatabaseAccess alloc] init];
     }
     return _database;
 }
 
-- (NSArray *)failedBankInfos {
+- (NSArray *)topicsListInfos {
     NSMutableArray *retval = [[NSMutableArray alloc] init];
-    NSString *query = @"SELECT id, name, city, state FROM failed_banks ORDER BY close_date DESC";
+    NSString *query = @"SELECT id, name, city, state FROM failed_banks ORDER BY close_date DESC LIMIT 10";
     sqlite3_stmt *statement;
+    NSLog(@"infos");
     if (sqlite3_prepare(_database, [query UTF8String], -1, &statement, nil)
         == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
+            NSLog(@"infos");
             int uniqueId = sqlite3_column_int(statement, 0);
             char *nameChars = (char *) sqlite3_column_text(statement, 1);
             char *cityChars = (char *) sqlite3_column_text(statement, 2);
@@ -49,7 +50,7 @@ static FailedBankDatabase* _database;
             NSString *name = [[NSString alloc] initWithUTF8String:nameChars];
             NSString *city = [[NSString alloc] initWithUTF8String:cityChars];
             NSString *state = [[NSString alloc] initWithUTF8String:stateChars];
-            FailedBankInfo *info = [[FailedBankInfo alloc]
+            TopicsList *info = [[TopicsList alloc]
                                     initWithUniqueId:uniqueId name:name city:city state:state];
             [retval addObject:info];
         }
@@ -58,5 +59,4 @@ static FailedBankDatabase* _database;
     return retval;
     
 }
-
 @end
