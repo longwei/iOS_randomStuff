@@ -7,7 +7,9 @@
 //
 
 #import "BNRItemStore.h"
-#import "BNRItem.h"
+//#import "BNRItem.h"
+#import "TopicsList.h"
+#import "DatabaseAccess.h"
 
 @implementation BNRItemStore
 
@@ -31,7 +33,8 @@
 {
     self = [super init];
     if(self){
-        allItems = [[NSMutableArray alloc] init];
+//        allItems = [[NSMutableArray alloc] init];
+        allItems = [DatabaseAccess database].topicsListInfos;
     }
     return self;
 }
@@ -41,14 +44,15 @@
     return allItems;
 }
 
-- (BNRItem*) createItem
+- (TopicsList*) createItem
 {
-    BNRItem* p = [BNRItem randomItem];
+    TopicsList* p = [TopicsList randomItem];
     [allItems addObject:p];
     return p;
 }
 
-- (void) removeItem:(BNRItem*) p
+
+- (void) removeItem:(TopicsList*) p
 {
     [allItems removeObjectIdenticalTo:p];
 }
@@ -56,7 +60,7 @@
 -(void) moveItemAtIndex:(int) from toIndex:(int)to
 {
     if(from == to) {return;}
-    BNRItem* p = [allItems objectAtIndex:from];
+    TopicsList* p = [allItems objectAtIndex:from];
     [allItems removeObjectAtIndex:from];
     [allItems insertObject:p atIndex:to];
 }

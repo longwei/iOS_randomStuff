@@ -28,8 +28,10 @@
 
 - (NSString *) description
 {
-//    NSString *desc = [[NSString alloc] initWithFormat:@("%@ (%@): $%d, %@")
-//                      ,itemName, serialNumber, valueInDollars, dateCreated];
-    return @"description";
+    return self.name;
+}
+
++ (id) randomItem{
+    return [[TopicsList alloc] initWithUniqueId:111 name:@"Longwei" city:@"Boston" state:@"MA"];
 }
 @end

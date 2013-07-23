@@ -15,5 +15,5 @@
 }
 
 +(DatabaseAccess*) database;
--(NSArray*) topicsListInfos;
+-(NSMutableArray*) topicsListInfos;
 @end

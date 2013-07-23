@@ -7,7 +7,7 @@
 //
 
 #import "ItemViewController.h"
-#import "BNRItem.h"
+//#import "BNRItem.h"
 #import "BNRItemStore.h"
 #import "TopicsList.h"
 #import "DatabaseAccess.h"
@@ -68,7 +68,7 @@
     }
 //    NSArray* filteredArray = [self dataWithSectionIndex:[indexPath section]];
     NSArray* filteredArray = [[BNRItemStore sharedStore] allItems];
-    BNRItem* p = [filteredArray objectAtIndex:[indexPath row]];
+    TopicsList* p = [filteredArray objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[p description]];
 //    if ([indexPath row] < [filteredArray count]) {
 //        BNRItem* p = [filteredArray objectAtIndex:[indexPath row]];
@@ -113,7 +113,7 @@
 //------
 - (IBAction)addNewItem:(id)sender
 {
-    BNRItem* newItem = [[BNRItemStore sharedStore] createItem];
+    TopicsList* newItem = [[BNRItemStore sharedStore] createItem];
     int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
     NSIndexPath* ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
@@ -148,7 +148,7 @@
 //        [alert show];
         BNRItemStore* ps = [BNRItemStore sharedStore];
         NSArray* items = [ps allItems];
-        BNRItem* p = [items objectAtIndex:[indexPath row]];
+        TopicsList* p = [items objectAtIndex:[indexPath row]];
         [ps removeItem:p];;
         //also remove that rwo from table view
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -167,19 +167,19 @@
     return @"REMOVE";
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailedViewController* detailedController = [[DetailedViewController alloc] init];
-    NSArray* items = [[BNRItemStore sharedStore] allItems];
-    BNRItem* selectedItem = [items objectAtIndex:[indexPath row]];
-    [detailedController setItem:selectedItem];
-    [[self navigationController] pushViewController:detailedController animated:YES];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[self tableView] reloadData];
-}
+//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    DetailedViewController* detailedController = [[DetailedViewController alloc] init];
+//    NSArray* items = [[BNRItemStore sharedStore] allItems];
+//    BNRItem* selectedItem = [items objectAtIndex:[indexPath row]];
+//    [detailedController setItem:selectedItem];
+//    [[self navigationController] pushViewController:detailedController animated:YES];
+//}
+//
+//-(void) viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [[self tableView] reloadData];
+//}
 
 @end
