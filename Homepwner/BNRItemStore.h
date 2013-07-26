@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class BNRItem;
+//@class BNRItem;
+@class TopicsList;
 
 @interface BNRItemStore : NSObject
 {
@@ -15,7 +16,7 @@
 }
 + (BNRItemStore*) sharedStore;
 - (NSArray*) allItems;
-- (BNRItem *) createItem;
-- (void) removeItem:(BNRItem*) p;
+- (TopicsList *) createItem;
+- (void) removeItem:(TopicsList*) p;
 - (void) moveItemAtIndex:(int)from toIndex:(int)to;
 @end

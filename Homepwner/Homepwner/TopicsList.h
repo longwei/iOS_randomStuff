@@ -23,4 +23,5 @@
 
 - (id)initWithUniqueId:(int)uniqueId name:(NSString *)name city:(NSString *)city
                  state:(NSString *)state;
++ (id) randomItem;
 @end
