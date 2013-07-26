@@ -34,7 +34,7 @@ static DatabaseAccess* _database;
     return _database;
 }
 
-- (NSMutableArray *)topicsListInfos {
+- (NSArray *)topicsListInfos {
     NSMutableArray *retval = [[NSMutableArray alloc] init];
     NSString *query = @"SELECT id, name, city, state FROM failed_banks ORDER BY close_date DESC LIMIT 10";
     sqlite3_stmt *statement;
