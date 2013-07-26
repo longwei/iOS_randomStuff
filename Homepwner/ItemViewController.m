@@ -13,7 +13,6 @@
 #import "DatabaseAccess.h"
 
 @implementation ItemViewController
-
 -(id) init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
@@ -25,13 +24,30 @@
 //        for (int i = 0; i < 4; ++i) {
 //            [[BNRItemStore sharedStore] createItem];
 //        }
-        NSLog(@"reading db");
-        NSArray *TopicsLists = [DatabaseAccess database].topicsListInfos;
-        for (TopicsList *info in TopicsLists) {
-            NSLog(@"%d: %@, %@, %@", info.uniqueId, info.name, info.city, info.state);
-        }
+//        NSLog(@"reading db");
+//        NSArray *TopicsLists = [DatabaseAccess database].topicsListInfos;
+//        for (TopicsList *info in TopicsLists) {
+//            NSLog(info.description);
+//        }
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.title = @"TOPICS";
+    
+    // Allocate Memory for the raw JSON Dictionary, and for just the tv episodes.
+//    jsonDict = [[NSDictionary alloc] init];
+//    episodes = [[NSArray alloc] init];
+    
+    // Setup the URL with the JSON URL. This url is a copy of the IMDB.
+    NSString* session = @"e6cade906b6d7defa5c7fa4ed322d438";
+    NSURL *url = [NSURL URLWithString:@"http://topicserver.ics.com/getLists?session_id=e6cade906b6d7defa5c7fa4ed322d438"];
+    [[BNRItemStore sharedStore] parseJSONWithURL:url];
+//    [self parseJSONWithURL:url];
 }
 
 -(id) initWithStyle:(UITableViewStyle)style
@@ -129,23 +145,22 @@
 //        [self setEditing:YES animated:YES];
 //    }
 //}
-- (IBAction)syncWithServer:(id)sender
+- (IBAction)pullSync:(id)sender
 {
     //todo.....
-    NSLog(@"syncing..");
+    [[self tableView] reloadData];
+    NSLog(@"pull syncing..");
+}
+- (IBAction)pushSync:(id)sender
+{
+    //todo.....
+    NSLog(@"push syncing..");
 }
 
 //-----------
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //pop a confirm
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-//                                                        message:@"You must be connected to the internet to use this app."
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"Cancel"
-//                                              otherButtonTitles:@"Remove", nil];
-//        [alert show];
         BNRItemStore* ps = [BNRItemStore sharedStore];
         NSArray* items = [ps allItems];
         TopicsList* p = [items objectAtIndex:[indexPath row]];
@@ -167,19 +182,19 @@
     return @"REMOVE";
 }
 
-//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    DetailedViewController* detailedController = [[DetailedViewController alloc] init];
-//    NSArray* items = [[BNRItemStore sharedStore] allItems];
-//    BNRItem* selectedItem = [items objectAtIndex:[indexPath row]];
-//    [detailedController setItem:selectedItem];
-//    [[self navigationController] pushViewController:detailedController animated:YES];
-//}
-//
-//-(void) viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    [[self tableView] reloadData];
-//}
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailedViewController* detailedController = [[DetailedViewController alloc] init];
+    NSArray* items = [[BNRItemStore sharedStore] allItems];
+    TopicsList* selectedItem = [items objectAtIndex:[indexPath row]];
+    [detailedController setItem:selectedItem];
+    [[self navigationController] pushViewController:detailedController animated:YES];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
+}
 
 @end

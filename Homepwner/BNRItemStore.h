@@ -13,10 +13,16 @@
 @interface BNRItemStore : NSObject
 {
     NSMutableArray* allItems;
+    NSMutableArray* remoteItems;
+    
+    NSDictionary *jsonDict;
+    NSArray *episodes;
+    NSURL *url;
 }
 + (BNRItemStore*) sharedStore;
 - (NSArray*) allItems;
 - (TopicsList *) createItem;
 - (void) removeItem:(TopicsList*) p;
 - (void) moveItemAtIndex:(int)from toIndex:(int)to;
+- (void) parseJSONWithURL:(NSURL *) jsonURL;
 @end

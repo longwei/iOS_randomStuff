@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BNRItem;
+//@class BNRItem;
+@class TopicsList;
 
 @interface DetailedViewController : UIViewController
 {
-    __weak IBOutlet UITextField *nameField;
-    __weak IBOutlet UITextField *serialNumberField;
-    __weak IBOutlet UITextField *valueField;
-//    __weak IBOutlet UILabel *dateLabel;
+    __weak IBOutlet UITextField *titleField;
+    __weak IBOutlet UITextField *descrField;
+    __weak IBOutlet UITextField *uniqueIDField;
     __weak IBOutlet UIButton *changeDate;
 }
-@property(nonatomic, strong) BNRItem* item;
+@property(nonatomic, strong) TopicsList* item;
 
 -(IBAction)changeDate:(id)sender;
 @end
