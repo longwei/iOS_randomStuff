@@ -16,8 +16,7 @@
 
 - (UIView*) headerView;
 - (IBAction)addNewItem:(id)sender;
-- (IBAction)pullSync:(id)sender;
-- (IBAction)pushSync:(id)sender;
+- (IBAction)syncWithServer:(id)sender;
 
 //-(NSArray*) dataWithSectionIndex:(NSInteger) section;//?why?
 @end
