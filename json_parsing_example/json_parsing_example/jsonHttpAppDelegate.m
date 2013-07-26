@@ -1,27 +1,23 @@
 //
-//  HomepwnerAppDelegate.m
-//  Homepwner
+//  jsonHttpAppDelegate.m
+//  json_parsing_example
 //
-//  Created by longwei su on 5/7/13.
-//  Copyright (c) 2013 com.longwei. All rights reserved.
+//  Created by longwei su on 7/15/13.
+//  Copyright (c) 2013 Longwei Su. All rights reserved.
 //
 
-#import "HomepwnerAppDelegate.h"
-#import "ItemViewController.h"
+#import "jsonHttpAppDelegate.h"
 
-@implementation HomepwnerAppDelegate
+#import "jsonHttpViewController.h"
+
+@implementation jsonHttpAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    ItemViewController* itemViewController = [[ItemViewController alloc] init];
-    //create a instance of UINavigation Controller
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:itemViewController];
-    
-//    [[self window] setRootViewController:itemViewController];
-    [[self window] setRootViewController:navController];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.viewController = [[jsonHttpViewController alloc] initWithNibName:@"jsonHttpViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

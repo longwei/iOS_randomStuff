@@ -21,6 +21,7 @@
     return sharedStore;
 }
 
+//prevent alloc call
 +(id) allocWithZone:(NSZone *)zone
 {
     return [self sharedStore];

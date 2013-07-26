@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DetailedViewController.h"
 
 @interface ItemViewController : UITableViewController
 {
@@ -15,7 +16,7 @@
 
 - (UIView*) headerView;
 - (IBAction)addNewItem:(id)sender;
-- (IBAction)toggleEditingMode:(id)sender;
+- (IBAction)syncWithServer:(id)sender;
 
 //-(NSArray*) dataWithSectionIndex:(NSInteger) section;//?why?
 @end
