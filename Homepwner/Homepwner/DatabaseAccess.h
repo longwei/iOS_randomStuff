@@ -15,8 +15,5 @@
 }
 
 +(DatabaseAccess*) database;
--(NSMutableArray*) readAllFromLocal;
-//update
-//remove
-//add
+-(NSMutableArray*) topicsListInfos;
 @end

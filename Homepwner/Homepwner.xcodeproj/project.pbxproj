@@ -111,15 +111,15 @@
 				96CCEA2B179DAB160092467F /* DetailedViewController.h */,
 				96CCEA2C179DAB160092467F /* DetailedViewController.m */,
 				96CCEA2D179DAB160092467F /* DetailedViewController.xib */,
+				963EC1EC17457B2C0003946B /* HeaderView.xib */,
 				96285BD3173976A900C37834 /* BNRItemStore.h */,
 				96285BD4173976A900C37834 /* BNRItemStore.m */,
 				96285BD0173975C000C37834 /* BNRItem.h */,
 				96285BD1173975C000C37834 /* BNRItem.m */,
-				963EC1EC17457B2C0003946B /* HeaderView.xib */,
 				96285BCD173973C400C37834 /* ItemViewController.h */,
 				96285BCE173973C400C37834 /* ItemViewController.m */,
-				961811FA179F2B4E00BBF2BC /* TopicsList.h */,
-				961811FB179F2B4E00BBF2BC /* TopicsList.m */,
+				96AA5433173962190078A279 /* HomepwnerAppDelegate.h */,
+				96AA5434173962190078A279 /* HomepwnerAppDelegate.m */,
 				96AA542B173962190078A279 /* Supporting Files */,
 			);
 			path = Homepwner;
@@ -133,14 +133,14 @@
 				96AA542C173962190078A279 /* Homepwner-Info.plist */,
 				96AA542D173962190078A279 /* InfoPlist.strings */,
 				96AA5430173962190078A279 /* main.m */,
-				96AA5433173962190078A279 /* HomepwnerAppDelegate.h */,
-				96AA5434173962190078A279 /* HomepwnerAppDelegate.m */,
 				96AA5432173962190078A279 /* Homepwner-Prefix.pch */,
 				96AA5436173962190078A279 /* Default.png */,
 				96AA5438173962190078A279 /* Default@2x.png */,
 				96AA543A173962190078A279 /* Default-568h@2x.png */,
 				961811F7179F2A9000BBF2BC /* DatabaseAccess.h */,
 				961811F8179F2A9000BBF2BC /* DatabaseAccess.m */,
+				961811FA179F2B4E00BBF2BC /* TopicsList.h */,
+				961811FB179F2B4E00BBF2BC /* TopicsList.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

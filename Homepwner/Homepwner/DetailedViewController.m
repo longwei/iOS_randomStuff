@@ -7,8 +7,7 @@
 //
 
 #import "DetailedViewController.h"
-//#import "BNRItem.h"
-#import "TopicsList.h"
+#import "BNRItem.h"
 
 @interface DetailedViewController ()
 
@@ -26,15 +25,13 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [titleField setText:[item title]];
-    [descrField setText:[item descr]];
-    [uniqueIDField setText:[NSString stringWithFormat:@"%d",item.uniqueId]];
+    [nameField setText:[item itemName]];
+    [serialNumberField setText:[item serialNumber]];
+    [valueField setText:[NSString stringWithFormat:@"%d", [item valueInDollars]]];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-    [changeDate setTitle:[dateFormatter stringFromDate:[[NSDate alloc] init]]
-                forState:UIControlStateNormal];
+    [changeDate setTitle:[dateFormatter stringFromDate:[item dateCreated]]forState:UIControlStateNormal];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
@@ -43,20 +40,16 @@
     //clear first responder
     [[self view] endEditing:YES];
     
-    [item setDescr:[descrField text]];
-    [item setUniqueId:[[uniqueIDField text] intValue]];
-    [item setTitle:[titleField text]];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-DDTHH:MM:SSZ"];
-    [item setLastDeleted:[dateFormatter dateFromString:[uniqueIDField text]]];
-    
+    [item setItemName:[nameField text]];
+    [item setSerialNumber:[serialNumberField text]];
+    [item setValueInDollars:[[valueField text] intValue]];
     
 }
 
--(void) setItem:(TopicsList *)i
+-(void) setItem:(BNRItem *)i
 {
     item = i;
-    [[self navigationItem] setTitle:[item title]];
+    [[self navigationItem] setTitle:[item itemName]];
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -66,7 +59,7 @@
 
 - (BOOL)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (textField == uniqueIDField) {
+    if (textField == valueField) {
         UIBarButtonItem *doneEditingButton = [[UIBarButtonItem alloc]
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                               target:self
@@ -77,7 +70,7 @@
 }
 - (BOOL)textFieldDidEndEditing:(UITextField *)textField
 {
-    if (textField == uniqueIDField) {
+    if (textField == valueField) {
         [[self navigationItem] setRightBarButtonItem:nil];
     }
     return YES;
@@ -85,7 +78,7 @@
 
 - (void)doneEditingValueField:(id)sender
 {
-    [uniqueIDField resignFirstResponder];
+    [valueField resignFirstResponder];
 }
 
 - (IBAction)changeDate:(id)sender
