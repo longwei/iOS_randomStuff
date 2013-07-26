@@ -181,6 +181,7 @@
 						<string key="NSFrame">{{119, 137}, {97, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -883,6 +884,7 @@
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="changeDate">UIButton</string>
+						<string key="dateLabel">UILabel</string>
 						<string key="nameField">UITextField</string>
 						<string key="serialNumberField">UITextField</string>
 						<string key="valueField">UITextField</string>
@@ -891,6 +893,10 @@
 						<object class="IBToOneOutletInfo" key="changeDate">
 							<string key="name">changeDate</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dateLabel">
+							<string key="name">dateLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="nameField">
 							<string key="name">nameField</string>
