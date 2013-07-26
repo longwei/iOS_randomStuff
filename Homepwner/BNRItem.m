@@ -44,7 +44,7 @@
     self = [super init];
     if (self) {
         [self setItemName:name];
-        [self setSerialNumber:sNumber];
+        [self setSerialName:sNumber];
         valueInDollars = value;
         dateCreated = [[NSDate alloc] init];
     }
@@ -72,12 +72,12 @@
                      serialNumber:@""];
 }
 @synthesize itemName;
-@synthesize serialNumber, valueInDollars, dateCreated, container, containedItem;
+@synthesize serialName, valueInDollars, dateCreated, container, containedItem;
 
 - (NSString *) description
 {
     NSString *desc = [[NSString alloc] initWithFormat:@("%@ (%@): $%d, %@")
-                      ,itemName, serialNumber, valueInDollars, dateCreated];
+                      ,itemName, serialName, valueInDollars, dateCreated];
     return desc;
 }
 

@@ -39,7 +39,7 @@ static FailedBankDatabase* _database;
     NSMutableArray *retval = [[NSMutableArray alloc] init];
     NSString *query = @"SELECT id, name, city, state FROM failed_banks ORDER BY close_date DESC";
     sqlite3_stmt *statement;
-    if (sqlite3_prepare(_database, [query UTF8String], -1, &statement, nil)
+    if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil)
         == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int uniqueId = sqlite3_column_int(statement, 0);

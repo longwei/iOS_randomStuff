@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		961811F6179F2A5800BBF2BC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961811F5179F2A5800BBF2BC /* libsqlite3.dylib */; };
-		961811F9179F2A9000BBF2BC /* DatabaseAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 961811F8179F2A9000BBF2BC /* DatabaseAccess.m */; };
-		961811FC179F2B4E00BBF2BC /* TopicsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 961811FB179F2B4E00BBF2BC /* TopicsList.m */; };
-		961811FE179F2C2D00BBF2BC /* topics.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 961811FD179F2C2D00BBF2BC /* topics.sqlite3 */; };
-		96181200179F31C700BBF2BC /* banklist.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 961811FF179F31C700BBF2BC /* banklist.sqlite3 */; };
 		96285BCF173973C400C37834 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96285BCE173973C400C37834 /* ItemViewController.m */; };
 		96285BD2173975C000C37834 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96285BD1173975C000C37834 /* BNRItem.m */; };
 		96285BD5173976A900C37834 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 96285BD4173976A900C37834 /* BNRItemStore.m */; };
@@ -25,18 +20,9 @@
 		96AA5437173962190078A279 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AA5436173962190078A279 /* Default.png */; };
 		96AA5439173962190078A279 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AA5438173962190078A279 /* Default@2x.png */; };
 		96AA543B173962190078A279 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AA543A173962190078A279 /* Default-568h@2x.png */; };
-		96CCEA2E179DAB160092467F /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CCEA2C179DAB160092467F /* DetailedViewController.m */; };
-		96CCEA2F179DAB160092467F /* DetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CCEA2D179DAB160092467F /* DetailedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		961811F5179F2A5800BBF2BC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		961811F7179F2A9000BBF2BC /* DatabaseAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAccess.h; sourceTree = "<group>"; };
-		961811F8179F2A9000BBF2BC /* DatabaseAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseAccess.m; sourceTree = "<group>"; };
-		961811FA179F2B4E00BBF2BC /* TopicsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsList.h; sourceTree = "<group>"; };
-		961811FB179F2B4E00BBF2BC /* TopicsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsList.m; sourceTree = "<group>"; };
-		961811FD179F2C2D00BBF2BC /* topics.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = topics.sqlite3; path = ../topics.sqlite3; sourceTree = "<group>"; };
-		961811FF179F31C700BBF2BC /* banklist.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = banklist.sqlite3; sourceTree = SOURCE_ROOT; };
 		96285BCD173973C400C37834 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemViewController.h; path = ../ItemViewController.h; sourceTree = "<group>"; };
 		96285BCE173973C400C37834 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemViewController.m; path = ../ItemViewController.m; sourceTree = "<group>"; };
 		96285BD0173975C000C37834 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItem.h; path = ../BNRItem.h; sourceTree = "<group>"; };
@@ -57,9 +43,6 @@
 		96AA5436173962190078A279 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		96AA5438173962190078A279 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		96AA543A173962190078A279 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		96CCEA2B179DAB160092467F /* DetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
-		96CCEA2C179DAB160092467F /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
-		96CCEA2D179DAB160092467F /* DetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961811F6179F2A5800BBF2BC /* libsqlite3.dylib in Frameworks */,
 				96AA5425173962190078A279 /* UIKit.framework in Frameworks */,
 				96AA5427173962190078A279 /* Foundation.framework in Frameworks */,
 				96AA5429173962190078A279 /* CoreGraphics.framework in Frameworks */,
@@ -97,7 +79,6 @@
 		96AA5423173962190078A279 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				961811F5179F2A5800BBF2BC /* libsqlite3.dylib */,
 				96AA5424173962190078A279 /* UIKit.framework */,
 				96AA5426173962190078A279 /* Foundation.framework */,
 				96AA5428173962190078A279 /* CoreGraphics.framework */,
@@ -108,9 +89,6 @@
 		96AA542A173962190078A279 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
-				96CCEA2B179DAB160092467F /* DetailedViewController.h */,
-				96CCEA2C179DAB160092467F /* DetailedViewController.m */,
-				96CCEA2D179DAB160092467F /* DetailedViewController.xib */,
 				963EC1EC17457B2C0003946B /* HeaderView.xib */,
 				96285BD3173976A900C37834 /* BNRItemStore.h */,
 				96285BD4173976A900C37834 /* BNRItemStore.m */,
@@ -128,8 +106,6 @@
 		96AA542B173962190078A279 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				961811FF179F31C700BBF2BC /* banklist.sqlite3 */,
-				961811FD179F2C2D00BBF2BC /* topics.sqlite3 */,
 				96AA542C173962190078A279 /* Homepwner-Info.plist */,
 				96AA542D173962190078A279 /* InfoPlist.strings */,
 				96AA5430173962190078A279 /* main.m */,
@@ -137,10 +113,6 @@
 				96AA5436173962190078A279 /* Default.png */,
 				96AA5438173962190078A279 /* Default@2x.png */,
 				96AA543A173962190078A279 /* Default-568h@2x.png */,
-				961811F7179F2A9000BBF2BC /* DatabaseAccess.h */,
-				961811F8179F2A9000BBF2BC /* DatabaseAccess.m */,
-				961811FA179F2B4E00BBF2BC /* TopicsList.h */,
-				961811FB179F2B4E00BBF2BC /* TopicsList.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,9 +174,6 @@
 				96AA5439173962190078A279 /* Default@2x.png in Resources */,
 				96AA543B173962190078A279 /* Default-568h@2x.png in Resources */,
 				963EC1ED17457B2C0003946B /* HeaderView.xib in Resources */,
-				96CCEA2F179DAB160092467F /* DetailedViewController.xib in Resources */,
-				961811FE179F2C2D00BBF2BC /* topics.sqlite3 in Resources */,
-				96181200179F31C700BBF2BC /* banklist.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,9 +189,6 @@
 				96285BCF173973C400C37834 /* ItemViewController.m in Sources */,
 				96285BD2173975C000C37834 /* BNRItem.m in Sources */,
 				96285BD5173976A900C37834 /* BNRItemStore.m in Sources */,
-				96CCEA2E179DAB160092467F /* DetailedViewController.m in Sources */,
-				961811F9179F2A9000BBF2BC /* DatabaseAccess.m in Sources */,
-				961811FC179F2B4E00BBF2BC /* TopicsList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

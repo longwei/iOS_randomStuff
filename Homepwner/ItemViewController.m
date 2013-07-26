@@ -9,8 +9,6 @@
 #import "ItemViewController.h"
 #import "BNRItem.h"
 #import "BNRItemStore.h"
-#import "TopicsList.h"
-#import "DatabaseAccess.h"
 
 @implementation ItemViewController
 
@@ -18,17 +16,8 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if(self){
-        [[self navigationItem] setTitle:@"TOPICS"];
-        UIBarButtonItem* bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
-        [[self navigationItem] setRightBarButtonItem:bbi];
-        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
-//        for (int i = 0; i < 4; ++i) {
-//            [[BNRItemStore sharedStore] createItem];
-//        }
-        NSLog(@"reading db");
-        NSArray *TopicsLists = [DatabaseAccess database].topicsListInfos;
-        for (TopicsList *info in TopicsLists) {
-            NSLog(@"%d: %@, %@, %@", info.uniqueId, info.name, info.city, info.state);
+        for (int i = 0; i < 4; ++i) {
+            [[BNRItemStore sharedStore] createItem];
         }
     }
     return self;
@@ -100,17 +89,16 @@
 }
 
 - (UIView*) tableView:(UITableView *)tableView
-            viewForFooterInSection:(NSInteger)section
+            viewForHeaderInSection:(NSInteger)section
 {
     return [self headerView];
 }
 
--(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return [[self headerView]bounds].size.height;
 }
 
-//------
 - (IBAction)addNewItem:(id)sender
 {
     BNRItem* newItem = [[BNRItemStore sharedStore] createItem];
@@ -119,38 +107,25 @@
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
     
 }
-//- (IBAction)toggleEditingMode:(id)sender
-//{
-//    if ([self isEditing]) {
-//        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-//        [self setEditing:NO animated:YES];
-//    } else {
-//        [sender setTitle:@"Done" forState:UIControlStateNormal];
-//        [self setEditing:YES animated:YES];
-//    }
-//}
-- (IBAction)syncWithServer:(id)sender
+- (IBAction)toggleEditingMode:(id)sender
 {
-    //todo.....
-    NSLog(@"syncing..");
+    if ([self isEditing]) {
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self setEditing:NO animated:YES];
+    } else {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self setEditing:YES animated:YES];
+    }
+    
 }
 
-//-----------
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //pop a confirm
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-//                                                        message:@"You must be connected to the internet to use this app."
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"Cancel"
-//                                              otherButtonTitles:@"Remove", nil];
-//        [alert show];
         BNRItemStore* ps = [BNRItemStore sharedStore];
         NSArray* items = [ps allItems];
         BNRItem* p = [items objectAtIndex:[indexPath row]];
         [ps removeItem:p];;
-        //also remove that rwo from table view
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -160,26 +135,6 @@
 {
     [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row] toIndex:[destinationIndexPath row]];
     
-}
-
--(NSString*) tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"REMOVE";
-}
-
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailedViewController* detailedController = [[DetailedViewController alloc] init];
-    NSArray* items = [[BNRItemStore sharedStore] allItems];
-    BNRItem* selectedItem = [items objectAtIndex:[indexPath row]];
-    [detailedController setItem:selectedItem];
-    [[self navigationController] pushViewController:detailedController animated:YES];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[self tableView] reloadData];
 }
 
 @end
